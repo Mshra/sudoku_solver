@@ -1,14 +1,16 @@
+from valid import valid
+
+SUDOKU_ROW = 9
+SUDOKU_COLUMN = 9
+
+class InvalidSudokuRow(Exception):
+    def __init_subclass__(cls) -> None:
+        return super().__init_subclass__()
+
+    def __str__(self):
+        return f'The row didn\'t have 9 numbers'
+
 def buildSudoku():
-    SUDOKU_ROW = 9
-    SUDOKU_COLUMN = 9
-
-    class InvalidSudokuRow(Exception):
-        def __init_subclass__(cls) -> None:
-            return super().__init_subclass__()
-
-        def __str__(self):
-            return f'The row didn\'t have 9 numbers'
-
     sudoku = []
     print('enter rows of the sudoku(0 to indicate empty space)')
 
@@ -22,6 +24,17 @@ def buildSudoku():
             print(err)
     return sudoku
 
-print(buildSudoku())
+def solveSudoku():
+    pass
 
-# TODO: build an interface for taking in sudoku first
+sudoku = [
+    ['5', '3', '0', '0', '7', '0', '0', '0', '0'],
+    ['6', '0', '0', '1', '9', '5', '0', '0', '0'],
+    ['0', '9', '8', '0', '0', '0', '0', '6', '0'],
+    ['8', '0', '0', '0', '6', '0', '0', '0', '3'],
+    ['4', '0', '0', '8', '0', '3', '0', '0', '1'],
+    ['7', '0', '0', '0', '2', '0', '0', '0', '6'],
+    ['0', '6', '0', '0', '0', '0', '2', '8', '0'],
+    ['0', '0', '0', '4', '1', '9', '0', '0', '5'],
+    ['0', '0', '0', '0', '8', '0', '0', '7', '9']
+]
